@@ -1,7 +1,7 @@
 filetype plugin on
 filetype indent on
 syntax on
-au BufNewFile,BufRead *.ejs so $HOME/.vim/syntax/jst.vim
+au BufNewFile,BufRead *.ejs set filetype=jst
 
 set pastetoggle=<F2>
 

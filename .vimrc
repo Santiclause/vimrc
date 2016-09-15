@@ -1,7 +1,15 @@
+execute pathogen#infect()
 filetype plugin on
 filetype indent on
 syntax on
 au BufNewFile,BufRead *.ejs set filetype=jst
+
+function! NukeLhm()
+    :%s/^ *.Lhm.Lhm::setAdapter($this->getAdapter());//
+    :%s/^ *\zs.*changeTable(\('.*'\).*/$table = $this->table(\1);/c
+    :%s/^ *});$//c
+endfunction
+command NukeLhm call NukeLhm()
 
 set pastetoggle=<F2>
 
@@ -28,9 +36,11 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
-
+""set et smarttab ts=4 sw=4 ai si
 set ai
 set si
+
+au FileType go set noexpandtab
 
 set virtualedit=block
 

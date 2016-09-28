@@ -3,6 +3,7 @@ filetype plugin on
 filetype indent on
 syntax on
 au BufNewFile,BufRead *.ejs set filetype=jst
+au BufNewFile,BufRead *.yaml.j2 set filetype=yaml
 
 function! NukeLhm()
     :%s/^ *.Lhm.Lhm::setAdapter($this->getAdapter());//
@@ -10,6 +11,11 @@ function! NukeLhm()
     :%s/^ *});$//c
 endfunction
 command NukeLhm call NukeLhm()
+
+function! WriteRun()
+    :w | ! ./%
+endfunction
+command WR call WriteRun()
 
 set pastetoggle=<F2>
 
@@ -41,6 +47,7 @@ set ai
 set si
 
 au FileType go set noexpandtab
+au FileType yaml set sw=2 ts=2
 
 set virtualedit=block
 

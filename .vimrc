@@ -4,6 +4,7 @@ filetype indent on
 syntax on
 au BufNewFile,BufRead *.ejs set filetype=jst
 au BufNewFile,BufRead *.yaml.j2 set filetype=yaml
+au BufWritePre * %s/\s\{1,\}$//gce
 
 function! NukeLhm()
     :%s/^ *.Lhm.Lhm::setAdapter($this->getAdapter());//

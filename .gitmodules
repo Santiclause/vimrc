@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule ".vim/bundle/xterm-color-table.vim"]
+	path = .vim/bundle/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim

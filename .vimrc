@@ -93,3 +93,6 @@ highlight PmenuSel ctermfg=black
 
 "highlight Search ctermbg=235 ctermfg=white
 highlight Search ctermbg=17 ctermfg=9
+
+highlight OverLength ctermbg=234
+au FileType markdown match OverLength /\%81v.\+/

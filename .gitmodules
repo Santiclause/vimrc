@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/xterm-color-table.vim"]
 	path = .vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim
+[submodule ".vim/bundle/vim-commentary"]
+	path = .vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git

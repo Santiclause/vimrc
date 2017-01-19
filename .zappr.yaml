@@ -6,8 +6,6 @@ approvals:
   groups:
     god-emperor:
       minimum: 1
-      labels:
-      - "God-Emperor"
       from:
         users:
         - Santiclause

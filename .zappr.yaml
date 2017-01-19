@@ -3,9 +3,3 @@ approvals:
   pattern: "^(:\\+1:|👍|lgtm)$"
   veto:
     pattern: "^(:\\-1:|👎)$"
-  groups:
-    god-emperor:
-      minimum: 1
-      from:
-        users:
-        - Santiclause

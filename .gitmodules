@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/vim-emoji"]
+	path = .vim/bundle/vim-emoji
+	url = git://github.com/junegunn/vim-emoji.git

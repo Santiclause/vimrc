@@ -23,3 +23,10 @@ approvals:
 specification:
   body:
     contains-url: true
+autolabel:
+- label: God-Emperor
+  pattern: ".*"
+- label: Mark
+  pattern: "test"
+- label: poop
+  pattern: "^\.vim/.*"

@@ -29,4 +29,4 @@ autolabel:
 - label: Mark
   pattern: "test"
 - label: poop
-  pattern: "^\.vim/.*"
+  pattern: "^\\.vim/.*"

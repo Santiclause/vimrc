@@ -109,8 +109,11 @@ highlight OverLength ctermbg=234
 au FileType markdown match OverLength /\%81v.\+/
 
 "autocomplete options
-set completeopt=longest,menuone,preview
-au CompleteDone * pclose
+set completeopt=longest,menuone
+if version >= 704
+  set completeopt=longest,menuone,preview
+  au CompleteDone * pclose
+end
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 

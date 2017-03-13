@@ -1,0 +1,5 @@
+approvals:
+  minimum: 1
+  pattern: "^(:\\+1:|👍|lgtm)$"
+  veto:
+    pattern: "^(:\\-1:|👎)$"

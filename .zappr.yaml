@@ -1,0 +1,32 @@
+approvals:
+  minimum: 1
+  ignore: both
+  pattern: "^(:\\+1:|👍|lgtm|:ok_hand:|👌|:shipit:)"
+  veto:
+    pattern: "^(:\\-1:|👎)"
+  groups:
+    god-emperor:
+      minimum: 1
+      labels:
+      - "God-Emperor"
+      from:
+        users:
+        - Santiclause
+    butt-face:
+      minimum: 1
+      labels:
+      - "Mark"
+      - "poop"
+      from:
+        users:
+        - mc0
+specification:
+  body:
+    contains-url: true
+autolabel:
+- label: God-Emperor
+  pattern: ".*"
+- label: Mark
+  pattern: "test"
+- label: poop
+  pattern: "^\.vim/.*"

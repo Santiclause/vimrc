@@ -1,0 +1,13 @@
+approvals:
+  minimum: 1
+  pattern: "^(:\\+1:|👍|lgtm)$"
+  veto:
+    pattern: "^(:\\-1:|👎)$"
+  groups:
+    god-emperor:
+      minimum: 1
+      labels:
+      - "God-Emperor"
+      from:
+        users:
+        - Santiclause

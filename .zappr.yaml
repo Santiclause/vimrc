@@ -20,6 +20,7 @@ approvals:
       from:
         users:
           - mc0
+          - cowpewter
 autolabel:
 - label: systems-review
   pattern: "^\\.zappr\\.yaml$"

@@ -12,6 +12,7 @@ approvals:
         users:
         - Santiclause
         - davidquarles
+        - cowpewter
     butts-review:
       minimum: 1
       labels:
@@ -19,14 +20,6 @@ approvals:
       from:
         users:
           - mc0
-commit:
-  message:
-    patterns:
-      -  "^(SRSP|SYS)-\\d+"
-      -  "^(fixup|squash)! "
-specification:
-  body:
-    contains-url: true
 autolabel:
 - label: systems-review
   pattern: "^\\.zappr\\.yaml$"

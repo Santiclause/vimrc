@@ -1,0 +1,34 @@
+approvals:
+  minimum: 1
+  pattern: "^\\s*(:\\+1:|👍|lgtm|:ok_hand:|👌|:shipit:|8==D)"
+  veto:
+    pattern: "^\\s*(:\\-1:|👎)"
+  groups:
+    systems-review:
+      minimum: 1
+      labels:
+      - "systems-review"
+      from:
+        users:
+        - Santiclause
+        - davidquarles
+    butts-review:
+      minimum: 1
+      labels:
+      - "poop"
+      from:
+        users:
+          - mc0
+commit:
+  message:
+    patterns:
+      -  "^(SRSP|SYS)-\\d+"
+      -  "^(fixup|squash)! "
+specification:
+  body:
+    contains-url: true
+autolabel:
+- label: systems-review
+  pattern: "^\\.zappr\\.yaml$"
+- label: poop
+  pattern: "butts"

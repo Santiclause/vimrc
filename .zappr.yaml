@@ -12,6 +12,7 @@ approvals:
         users:
         - Santiclause
         - davidquarles
+        - cowpewter
     butts-review:
       minimum: 1
       labels:

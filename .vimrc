@@ -78,6 +78,9 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap ZZ <nop>
 
+vnoremap p "_dP
+vnoremap P p
+
 nnoremap <F7> :tabp<CR>
 inoremap <F7> <Esc>:tabp<CR>i
 vnoremap <F7> :tabp<CR>
@@ -104,16 +107,24 @@ highlight PmenuSel ctermfg=black
 
 "highlight Search ctermbg=235 ctermfg=white
 highlight Search ctermbg=17 ctermfg=9
+" hi DiffText   cterm=none ctermfg=Black ctermbg=Red gui=none guifg=Black guibg=Red
+" hi DiffChange cterm=none ctermfg=Black ctermbg=LightMagenta gui=none guifg=Black guibg=LightMagenta
+hi DiffAdd          ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse        gui=reverse
+hi DiffChange       ctermbg=235  ctermfg=103  guibg=#262626 guifg=#8787af cterm=reverse        gui=reverse
+hi DiffDelete       ctermbg=235  ctermfg=131  guibg=#262626 guifg=#af5f5f cterm=reverse        gui=reverse
+hi DiffText         ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse        gui=reverse
+nnoremap do do]c
+nnoremap dp dp]c
 
 highlight OverLength ctermbg=234
 au FileType markdown match OverLength /\%81v.\+/
 
 "autocomplete options
-set completeopt=longest,menuone
-if version >= 704
-  set completeopt=longest,menuone,preview
-  au CompleteDone * pclose
-end
+set completeopt=menuone
+" if version >= 704
+"   set completeopt=longest,menuone,preview
+"   au CompleteDone * pclose
+" end
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 

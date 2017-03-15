@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-emoji"]
 	path = .vim/bundle/vim-emoji
 	url = git://github.com/junegunn/vim-emoji.git
+[submodule ".vim/bundle/apprentice"]
+	path = .vim/bundle/apprentice
+	url = git@github.com:romainl/apprentice.git

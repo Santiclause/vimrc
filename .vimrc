@@ -4,7 +4,39 @@ filetype indent on
 syntax on
 au BufNewFile,BufRead *.ejs set filetype=jst
 au BufNewFile,BufRead *.yaml.j2 set filetype=yaml
+au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 au BufWritePre * %s/\s\{1,\}$//gce
+
+au BufReadPost,FileReadPost *.ecfg.yaml call EcfgReadCmd("yaml")
+au BufReadPost,FileReadPost *.ecfg.toml call EcfgReadCmd("toml")
+au BufReadPost,FileReadPost *.ecfg.json call EcfgReadCmd("json")
+au BufWriteCmd,FileWriteCmd *.ecfg.yaml call EcfgWriteCmd("yaml")
+au BufWriteCmd,FileWriteCmd *.ecfg.toml call EcfgWriteCmd("toml")
+au BufWriteCmd,FileWriteCmd *.ecfg.json call EcfgWriteCmd("json")
+
+function! EcfgReadCmd(type)
+    let tmp = tempname()
+    silent exe "w !ecfg decrypt --type ".a:type." > ".tmp
+    if !v:shell_error
+        silent exe "%!cat ".tmp
+        setlocal nomodified
+    endif
+    call delete(tmp)
+endfunction
+function! EcfgWriteCmd(type)
+    let nm = expand("<afile>")
+    let tmp = tempname()
+    silent exe "noautocmd w !ecfg encrypt --type ".a:type." > ".tmp
+    if !v:shell_error
+        call rename(tmp, nm)
+        setlocal nomodified
+    else
+        echohl ErrorMsg
+        echo "An error occured while trying to convert the file."
+        echohl NONE
+        call delete(tmp)
+    endif
+endfunction
 
 function! NukeLhm()
     :%s/^ *.Lhm.Lhm::setAdapter($this->getAdapter());//
@@ -78,7 +110,7 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap ZZ <nop>
 
-vnoremap p "_dP
+vnoremap p pgvy
 vnoremap P p
 
 nnoremap <F7> :tabp<CR>

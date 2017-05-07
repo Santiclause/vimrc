@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/apprentice"]
 	path = .vim/bundle/apprentice
 	url = git@github.com:romainl/apprentice.git
+[submodule ".vim/bundle/vim-ecfg"]
+	path = .vim/bundle/vim-ecfg
+	url = git@github.com:santiclause/vim-ecfg

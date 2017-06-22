@@ -7,6 +7,7 @@ au BufNewFile,BufRead *.yaml.j2 set filetype=yaml
 au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 au BufWritePre * %s/\s\{1,\}$//gce
 au FileType ansible set filetype=yaml
+au FileType json set sw=2 ts=2
 
 function! NukeLhm()
     :%s/^ *.Lhm.Lhm::setAdapter($this->getAdapter());//
@@ -103,7 +104,7 @@ nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
-imap <Tab> <C-P>
+imap <Tab> <C-P><Down>
 highlight Pmenu ctermbg=brown ctermfg=white
 highlight PmenuSel ctermfg=black
 
@@ -123,15 +124,19 @@ au FileType markdown match OverLength /\%81v.\+/
 
 "autocomplete options
 set completeopt=menuone
-" if version >= 704
-"   set completeopt=longest,menuone,preview
-"   au CompleteDone * pclose
-" end
+if version >= 704
+  set completeopt=longest,menuone,preview
+  au CompleteDone * pclose
+end
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-au FileType go inoremap <expr> <Tab> pumvisible() ? '<Down>' : '<C-x><C-o>'
+au FileType go inoremap <expr> <Tab> pumvisible() ? '<Down>' : '<C-x><C-o><Down>'
 au FileType go inoremap <expr> <S-Tab> pumvisible() ? '<Up>' : '<Tab>'
+au FileType go nnoremap gi :GoImports<CR>
+au FileType go nmap gD <Plug>(go-def-tab)
+au FileType go nmap gsd <Plug>(go-def-split)
+au FileType go nmap gsv <Plug>(go-def-vertical)
 
 nnoremap <silent> gb :set opfunc=Base64Decode<CR>g@
 vnoremap gb :<C-U>call Base64Decode(visualmode(), 1)<CR>

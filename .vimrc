@@ -5,6 +5,7 @@ syntax on
 au BufNewFile,BufRead *.ejs set filetype=jst
 au BufNewFile,BufRead *.yaml.j2 set filetype=yaml
 au BufNewFile,BufRead Jenkinsfile set filetype=groovy
+au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 au BufWritePre * %s/\s\{1,\}$//gce
 au FileType ansible set filetype=yaml
 au FileType json set sw=2 ts=2
@@ -84,6 +85,9 @@ nnoremap ZZ <nop>
 vnoremap p pgvy
 vnoremap P p
 
+nnoremap <F6> :tabc<CR>
+inoremap <F6> <Esc>:tabc<CR>i
+vnoremap <F6> :tabc<CR>
 nnoremap <F7> :tabp<CR>
 inoremap <F7> <Esc>:tabp<CR>i
 vnoremap <F7> :tabp<CR>

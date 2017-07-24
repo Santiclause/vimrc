@@ -86,13 +86,13 @@ vnoremap p pgvy
 vnoremap P p
 
 nnoremap <F6> :tabc<CR>
-inoremap <F6> <Esc>:tabc<CR>i
+inoremap <F6> <Esc>:tabc<CR>a
 vnoremap <F6> :tabc<CR>
 nnoremap <F7> :tabp<CR>
-inoremap <F7> <Esc>:tabp<CR>i
+inoremap <F7> <Esc>:tabp<CR>a
 vnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
-inoremap <F8> <Esc>:tabn<CR>i
+inoremap <F8> <Esc>:tabn<CR>a
 vnoremap <F8> :tabn<CR>
 
 set mouse=a

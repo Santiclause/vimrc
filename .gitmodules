@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-ecfg"]
 	path = .vim/bundle/vim-ecfg
 	url = git@github.com:santiclause/vim-ecfg
+[submodule ".vim/bundle/vim-wintabs"]
+	path = .vim/bundle/vim-wintabs
+	url = https://github.com/zefei/vim-wintabs

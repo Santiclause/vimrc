@@ -77,6 +77,8 @@ nnoremap Oy 10<C-Y>
 nnoremap Os 10<C-E>
 nnoremap Ot 5zh
 nnoremap Ov 5zl
+nnoremap Ow :prev<CR>
+nnoremap Oq :next<CR>
 
 nnoremap n nzz
 nnoremap N Nzz

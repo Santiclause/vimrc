@@ -153,16 +153,19 @@ function! Base64Decode(type, ...)
   let sel_save = &selection
   let &selection = "inclusive"
   let reg_save = @a
+  let paste_save = &paste
 
+  let &paste = 1
   if a:0  " Invoked from Visual mode, use gv command.
-    silent exe "normal! gv\"ac\<C-R>=system('echo -n \"' . @a  . '\" | base64 -D | xargs -n1 printf %s')\<CR>\<Esc>"
+    silent exe "normal! gv\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64 --decode)\"')\<CR>\<Esc>"
   elseif a:type == 'line'
-    silent exe "normal! '[V']\"ac\<C-R>=system('echo -n \"' . @a  . '\" | base64 -D | xargs -n1 printf %s')\<CR>\<Esc>"
+    silent exe "normal! '[V']\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64 --decode)\"')\<CR>\<Esc>"
   else
-    silent exe "normal! `[v`]\"ac\<C-R>=system('echo -n \"' . @a  . '\" | base64 -D | xargs -n1 printf %s')\<CR>\<Esc>"
+    silent exe "normal! `[v`]\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64 --decode)\"')\<CR>\<Esc>"
   endif
 
   let &selection = sel_save
+  let &paste = paste_save
   let @a = reg_save
 endfunction
 
@@ -170,15 +173,18 @@ function! Base64Encode(type, ...)
   let sel_save = &selection
   let &selection = "inclusive"
   let reg_save = @a
+  let paste_save = &paste
 
+  let &paste = 1
   if a:0  " Invoked from Visual mode, use gv command.
-    silent exe "normal! gv\"ac\<C-R>=system('echo -n \"' . @a  . '\" | base64 | xargs -n1 printf %s')\<CR>\<Esc>"
+    silent exe "normal! gv\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64)\"')\<CR>\<Esc>"
   elseif a:type == 'line'
-    silent exe "normal! '[V']\"ac\<C-R>=system('echo -n \"' . @a  . '\" | base64 | xargs -n1 printf %s')\<CR>\<Esc>"
+    silent exe "normal! '[V']\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64)\"')\<CR>\<Esc>"
   else
-    silent exe "normal! `[v`]\"ac\<C-R>=system('echo -n \"' . @a  . '\" | base64 | xargs -n1 printf %s')\<CR>\<Esc>"
+    silent exe "normal! `[v`]\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64)\"')\<CR>\<Esc>"
   endif
 
   let &selection = sel_save
+  let &paste = paste_save
   let @a = reg_save
 endfunction

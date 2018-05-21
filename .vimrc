@@ -87,15 +87,33 @@ nnoremap ZZ <nop>
 vnoremap p pgvy
 vnoremap P p
 
-nnoremap <F6> :tabc<CR>
-inoremap <F6> <Esc>:tabc<CR>a
-vnoremap <F6> :tabc<CR>
-nnoremap <F7> :tabp<CR>
-inoremap <F7> <Esc>:tabp<CR>a
-vnoremap <F7> :tabp<CR>
-nnoremap <F8> :tabn<CR>
-inoremap <F8> <Esc>:tabn<CR>a
-vnoremap <F8> :tabn<CR>
+" nnoremap <F6> :tabc<CR>
+" inoremap <F6> <Esc>:tabc<CR>a
+" vnoremap <F6> :tabc<CR>
+" nnoremap <F7> :tabp<CR>
+" inoremap <F7> <Esc>:tabp<CR>a
+" vnoremap <F7> :tabp<CR>
+" nnoremap <F8> :tabn<CR>
+" inoremap <F8> <Esc>:tabn<CR>a
+" vnoremap <F8> :tabn<CR>
+nnoremap [26~ :WintabsCloseVimtab<CR>
+inoremap [26~ <Esc>:WintabsCloseVimtab<CR>a
+vnoremap [26~ :WintabsCloseVimtab<CR>
+nnoremap [28~ :tabp<CR>
+inoremap [28~ <Esc>:tabp<CR>a
+vnoremap [28~ :tabp<CR>
+nnoremap [29~ :tabn<CR>
+inoremap [29~ <Esc>:tabn<CR>a
+vnoremap [29~ :tabn<CR>
+nnoremap <silent> <F6> :WintabsClose<CR>
+inoremap <silent> <F6> <Esc>:WintabsClose<CR>a
+vnoremap <silent> <F6> :WintabsClose<CR>
+nnoremap <silent> <F7> :WintabsPrevious<CR>
+inoremap <silent> <F7> <Esc>:WintabsPrevious<CR>a
+vnoremap <silent> <F7> :WintabsPrevious<CR>
+nnoremap <silent> <F8> :WintabsNext<CR>
+inoremap <silent> <F8> <Esc>:WintabsNext<CR>a
+vnoremap <silent> <F8> :WintabsNext<CR>
 
 set mouse=a
 map <ScrollWheelUp> <C-Y>

@@ -3,11 +3,9 @@ filetype plugin on
 filetype indent on
 syntax on
 au BufNewFile,BufRead *.ejs set filetype=jst
-au BufNewFile,BufRead *.yaml.j2 set filetype=yaml
 au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 au BufWritePre * %s/\s\{1,\}$//gce
-au FileType ansible set filetype=yaml
 au FileType json set sw=2 ts=2
 
 function! NukeLhm()
@@ -29,6 +27,8 @@ set number
 highlight LineNr ctermfg=58 ctermbg=232
 set foldcolumn=2
 highlight FoldColumn ctermfg=86 ctermbg=232
+
+hi jinjaFilter ctermfg=3
 
 set clipboard=unnamed ""enables putting yanks/deletes/etc in clipboard
 

@@ -51,8 +51,8 @@ syn match jinjaFunction contained skipwhite /[a-zA-Z_][a-zA-Z0-9_]*/
 syn match jinjaBlockName contained skipwhite /[a-zA-Z_][a-zA-Z0-9_]*/
 
 " Jinja template constants
-syn region jinjaString containedin=jinjaVarBlock,jinjaTagBlock,jinjaNested contained start=/"/ skip=/\\"/ end=/"/
-syn region jinjaString containedin=jinjaVarBlock,jinjaTagBlock,jinjaNested contained start=/'/ skip=/\\'/ end=/'/
+syn region jinjaString containedin=jinjaVarBlock,jinjaTagBlock,jinjaNested contained start=/"/ skip=/\(\\\)\@<!\(\\\\\)*\\"/ end=/"/
+syn region jinjaString containedin=jinjaVarBlock,jinjaTagBlock,jinjaNested contained start=/'/ skip=/\(\\\)\@<!\(\\\\\)*\\'/ end=/'/
 syn match jinjaNumber containedin=jinjaVarBlock,jinjaTagBlock,jinjaNested contained /[0-9]\+\(\.[0-9]\+\)\?/
 
 " Operators

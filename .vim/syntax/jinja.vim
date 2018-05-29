@@ -70,7 +70,7 @@ syn region jinjaTagBlock matchgroup=jinjaTagDelim start=/{%-\?/ end=/-\?%}/ skip
 syn region jinjaVarBlock matchgroup=jinjaVarDelim start=/{{-\?/ end=/-\?}}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment
 
 " Jinja template 'raw' tag
-syn region jinjaRaw matchgroup=jinjaRawDelim start=/{%-\?\s*raw\s*-\?%}/ end=/{%-\?\s*endraw\s*-\?%}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment contains=ALLBUT,@Jinja fold
+syn region jinjaRaw matchgroup=jinjaRawDelim start=/{%-\?\s*raw\s*-\?%}/ end=/{%-\?\s*endraw\s*-\?%}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment contains=TOP,@Jinja fold
 
 " Jinja comments
 syn region jinjaComment matchgroup=jinjaCommentDelim start="{#" end="#}" containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaString
@@ -89,19 +89,19 @@ syn region jinjaTagBlock matchgroup=jinjaTagDelim start=#^\s*%# end=#$# keepend 
 " Block regions so that we can do syntax folding on jinja blocks. There's some
 " nuance involved with the start/end pattern matching and matchgroups, in
 " regards to colliding with the jinjaTagBlock pattern.
-syn region jinjaBlockAutoescape contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/\c{%-\?\s*autoescape \(true\|false\)\s*-\?%}/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endautoescape\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockBlock contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*block \w\+\s*-\?%}/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endblock\s*\w*\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockCall contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*call\>/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endcall\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockFilter contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*filter\>/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endfilter\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockFor contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*for / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endfor\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockIf contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*if / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endif\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockMacro contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*macro / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endmacro\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockAutoescape contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/\c{%-\?\s*autoescape \(true\|false\)\s*-\?%}/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endautoescape\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockBlock contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*block \w\+\s*-\?%}/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endblock\s*\w*\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockCall contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*call\>/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endcall\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockFilter contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*filter\>/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endfilter\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockFor contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*for / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endfor\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockIf contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*if / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endif\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockMacro contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*macro / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endmacro\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
 " This will technically fail to determine the start of a set block if it uses
 " the filter syntax and the filter has a string argument containing an equals
 " sign, but that's an almost pathological corner case
-syn region jinjaBlockSet contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*set [^=]\{-}%}/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endset\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockTrans contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*trans / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endtrans\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
-syn region jinjaBlockWith contains=ALL containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*with / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endwith\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockSet contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*set [^=]\{-}%}/ matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endset\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockTrans contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*trans / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endtrans\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
+syn region jinjaBlockWith contains=TOP containedin=ALLBUT,jinjaRaw,jinjaTagBlock,jinjaVarBlock,jinjaString,jinjaComment fold start=/{%-\?\s*with / matchgroup=jinjaBlockEnd end=/{%-\?\(\s*endwith\s*-\?%}\)\@=/ nextgroup=jinjaBlockEndStatement skipwhite
 " This is some ugly nonsense to get proper syntax highlighting on block-ending
 " tags.
 syn match jinjaBlockEndStatement contained /end\w\+/ nextgroup=jinjaBlockEndTag skipwhite

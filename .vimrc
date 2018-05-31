@@ -20,6 +20,47 @@ function! WriteRun()
 endfunction
 command WR call WriteRun()
 
+function! NiceSplit()
+    let l:top = line("w0")
+    let l:bottom = line("w$")
+    let l:save_cursor = getcurpos()
+    normal M
+    let l:middle = line(".")
+    let l:splitbelow = &splitbelow
+    if l:save_cursor[1] <= l:middle
+        let &splitbelow = 0
+        split
+        call cursor(l:top, 0)
+        normal zt
+        if l:save_cursor[1] > line("w$")
+            call cursor(l:save_cursor[1], 0)
+            normal zb
+        endif
+        let l:bottom = line("w$")
+        wincmd j
+        call cursor(l:bottom, 0)
+        normal ztLj
+        wincmd k
+    else
+        let &splitbelow = 1
+        split
+        call cursor(l:bottom, 0)
+        normal zb
+        if l:save_cursor[1] < line("w0")
+            call cursor(l:save_cursor[1], 0)
+            normal zt
+        endif
+        let l:top = line("w0")
+        wincmd k
+        call cursor(l:top, 0)
+        normal zbHk
+        wincmd j
+    endif
+    call setpos('.', l:save_cursor)
+    let &splitbelow = l:splitbelow
+endfunction
+command Split call NiceSplit()
+
 set pastetoggle=<F2>
 
 set ruler

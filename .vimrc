@@ -128,6 +128,12 @@ nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
+" Create fold text objects using [z and ]z
+vnoremap if :<C-U>silent!normal![zjV]zk<CR>
+onoremap if :normal Vif<CR>
+vnoremap af :<C-U>silent!normal![zV]z<CR>
+onoremap af :normal Vaf<CR>
+
 imap <Tab> <C-P><Down>
 highlight Pmenu ctermbg=brown ctermfg=white
 highlight PmenuSel ctermfg=black

@@ -208,6 +208,19 @@ au FileType go nnoremap gi :GoImports<CR>
 au FileType go nmap gD <Plug>(go-def-tab)
 au FileType go nmap gsd <Plug>(go-def-split)
 au FileType go nmap gsv <Plug>(go-def-vertical)
+au FileType go nmap gr <Plug>(go-referrers)
+
+au FileType qf nnoremap <expr> <buffer> <CR> ":" . repeat(LocationType(), 2) . line(".") . "\<CR>"
+function! LocationType()
+	let l:type = "c"
+	if getwininfo(win_getid())[0]['loclist']
+		let l:type = "l"
+	endif
+    return l:type
+endfunction
+
+nnoremap [l :lprev<CR>
+nnoremap ]l :lnext<CR>
 
 nnoremap <silent> gb :set opfunc=Base64Decode<CR>g@
 vnoremap gb :<C-U>call Base64Decode(visualmode(), 1)<CR>

@@ -255,11 +255,11 @@ function! Base64Encode(type, ...)
 
   let &paste = 1
   if a:0  " Invoked from Visual mode, use gv command.
-    silent exe "normal! gv\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64)\"')\<CR>\<Esc>"
+    silent exe "normal! gv\"ac\<C-R>=substitute(system('base64', @a), \"\\n\", '', '')\<CR>\<Esc>"
   elseif a:type == 'line'
-    silent exe "normal! '[V']\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64)\"')\<CR>\<Esc>"
+    silent exe "normal! '[V']\"ac\<C-R>=substitute(system('base64', @a), \"\\n\", '', '')\<CR>\<Esc>"
   else
-    silent exe "normal! `[v`]\"ac\<C-R>=system('printf %s \"$(echo -n \"' . @a  . '\" | base64)\"')\<CR>\<Esc>"
+    silent exe "normal! `[v`]\"ac\<C-R>=substitute(system('base64', @a), \"\\n\", '', '')\<CR>\<Esc>"
   endif
 
   let &selection = sel_save

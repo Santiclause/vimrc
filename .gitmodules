@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/vim-wintabs"]
 	path = .vim/bundle/vim-wintabs
 	url = https://github.com/zefei/vim-wintabs
+[submodule ".vim/bundle/jq.vim"]
+	path = .vim/bundle/jq.vim
+	url = git@github.com:vito-c/jq.vim

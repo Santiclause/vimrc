@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/jq.vim"]
 	path = .vim/bundle/jq.vim
 	url = git@github.com:vito-c/jq.vim
+[submodule ".vim/bundle/toml"]
+	path = .vim/bundle/toml
+	url = git@github.com:cespare/vim-toml

@@ -1,33 +1,33 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
-	url = git@github.com:tpope/vim-abolish.git
+	url = https://github.com/tpope/vim-abolish.git
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
-	url = git@github.com:tpope/vim-repeat.git
+	url = https://github.com/tpope/vim-repeat.git
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
-	url = git@github.com:fatih/vim-go.git
+	url = https://github.com/fatih/vim-go.git
 [submodule ".vim/bundle/xterm-color-table.vim"]
 	path = .vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
-	url = git@github.com:tpope/vim-commentary.git
+	url = https://github.com/tpope/vim-commentary.git
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
+	url = https://github.com/airblade/vim-gitgutter.git
 [submodule ".vim/bundle/vim-emoji"]
 	path = .vim/bundle/vim-emoji
-	url = git://github.com/junegunn/vim-emoji.git
+	url = https://github.com/junegunn/vim-emoji.git
 [submodule ".vim/bundle/apprentice"]
 	path = .vim/bundle/apprentice
-	url = git@github.com:romainl/apprentice.git
+	url = https://github.com/romainl/apprentice.git
 [submodule ".vim/bundle/vim-ecfg"]
 	path = .vim/bundle/vim-ecfg
-	url = git@github.com:santiclause/vim-ecfg
+	url = https://github.com/santiclause/vim-ecfg
 [submodule ".vim/bundle/vim-wintabs"]
 	path = .vim/bundle/vim-wintabs
 	url = https://github.com/zefei/vim-wintabs

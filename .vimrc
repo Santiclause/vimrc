@@ -7,6 +7,8 @@ au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 au BufWritePre * %s/\s\{1,\}$//gce
 au FileType json set sw=2 ts=2
+au BufNewFile,BufRead *.ts set ft=javascript ts=2 sw=2
+let g:sql_type_default = 'mysql'
 
 function! NukeLhm()
     :%s/^ *.Lhm.Lhm::setAdapter($this->getAdapter());//
@@ -75,6 +77,7 @@ set clipboard=unnamed ""enables putting yanks/deletes/etc in clipboard
 
 set ttyfast
 set lazyredraw
+set redrawtime=10000
 
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
@@ -146,15 +149,15 @@ vnoremap [28~ :tabp<CR>
 nnoremap [29~ :tabn<CR>
 inoremap [29~ <Esc>:tabn<CR>a
 vnoremap [29~ :tabn<CR>
-nnoremap <silent> <F6> :WintabsClose<CR>
-inoremap <silent> <F6> <Esc>:WintabsClose<CR>a
-vnoremap <silent> <F6> :WintabsClose<CR>
-nnoremap <silent> <F7> :WintabsPrevious<CR>
-inoremap <silent> <F7> <Esc>:WintabsPrevious<CR>a
-vnoremap <silent> <F7> :WintabsPrevious<CR>
-nnoremap <silent> <F8> :WintabsNext<CR>
-inoremap <silent> <F8> <Esc>:WintabsNext<CR>a
-vnoremap <silent> <F8> :WintabsNext<CR>
+" nnoremap <silent> <F6> :WintabsClose<CR>
+" inoremap <silent> <F6> <Esc>:WintabsClose<CR>a
+" vnoremap <silent> <F6> :WintabsClose<CR>
+" nnoremap <silent> <F7> :WintabsPrevious<CR>
+" inoremap <silent> <F7> <Esc>:WintabsPrevious<CR>a
+" vnoremap <silent> <F7> :WintabsPrevious<CR>
+" nnoremap <silent> <F8> :WintabsNext<CR>
+" inoremap <silent> <F8> <Esc>:WintabsNext<CR>a
+" vnoremap <silent> <F8> :WintabsNext<CR>
 
 set mouse=a
 map <ScrollWheelUp> <C-Y>
@@ -209,6 +212,9 @@ au FileType go nmap gD <Plug>(go-def-tab)
 au FileType go nmap gsd <Plug>(go-def-split)
 au FileType go nmap gsv <Plug>(go-def-vertical)
 au FileType go nmap gr <Plug>(go-referrers)
+let g:go_highlight_diagnostic_errors = 0
+let g:go_highlight_diagnostic_warnings = 0
+let g:go_list_type = "locationlist"
 
 au FileType qf nnoremap <expr> <buffer> <CR> ":" . repeat(LocationType(), 2) . line(".") . "\<CR>"
 function! LocationType()

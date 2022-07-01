@@ -71,7 +71,9 @@ highlight FoldColumn ctermfg=86 ctermbg=232
 
 hi jinjaFilter ctermfg=3
 
-set clipboard=unnamed ""enables putting yanks/deletes/etc in clipboard
+set clipboard=unnamedplus ""enables putting yanks/deletes/etc in clipboard
+set background=light
+set modeline
 
 set ttyfast
 set lazyredraw
@@ -128,24 +130,24 @@ nnoremap ZZ <nop>
 vnoremap p pgvy
 vnoremap P p
 
-" nnoremap <F6> :tabc<CR>
-" inoremap <F6> <Esc>:tabc<CR>a
-" vnoremap <F6> :tabc<CR>
-" nnoremap <F7> :tabp<CR>
-" inoremap <F7> <Esc>:tabp<CR>a
-" vnoremap <F7> :tabp<CR>
-" nnoremap <F8> :tabn<CR>
-" inoremap <F8> <Esc>:tabn<CR>a
-" vnoremap <F8> :tabn<CR>
-nnoremap [26~ :WintabsCloseVimtab<CR>
-inoremap [26~ <Esc>:WintabsCloseVimtab<CR>a
-vnoremap [26~ :WintabsCloseVimtab<CR>
-nnoremap [28~ :tabp<CR>
-inoremap [28~ <Esc>:tabp<CR>a
-vnoremap [28~ :tabp<CR>
-nnoremap [29~ :tabn<CR>
-inoremap [29~ <Esc>:tabn<CR>a
-vnoremap [29~ :tabn<CR>
+" nnoremap <S-F6> :tabc<CR>
+" inoremap <S-F6> <Esc>:tabc<CR>a
+" vnoremap <S-F6> :tabc<CR>
+" nnoremap <S-F7> :tabp<CR>
+" inoremap <S-F7> <Esc>:tabp<CR>a
+" vnoremap <S-F7> :tabp<CR>
+" nnoremap <S-F8> :tabn<CR>
+" inoremap <S-F8> <Esc>:tabn<CR>a
+" vnoremap <S-F8> :tabn<CR>
+nnoremap <S-F6> :WintabsCloseVimtab<CR>
+inoremap <S-F6> <Esc>:WintabsCloseVimtab<CR>a
+vnoremap <S-F6> :WintabsCloseVimtab<CR>
+nnoremap <S-F7> :tabp<CR>
+inoremap <S-F7> <Esc>:tabp<CR>a
+vnoremap <S-F7> :tabp<CR>
+nnoremap <S-F8> :tabn<CR>
+inoremap <S-F8> <Esc>:tabn<CR>a
+vnoremap <S-F8> :tabn<CR>
 nnoremap <silent> <F6> :WintabsClose<CR>
 inoremap <silent> <F6> <Esc>:WintabsClose<CR>a
 vnoremap <silent> <F6> :WintabsClose<CR>
@@ -181,6 +183,7 @@ highlight PmenuSel ctermfg=black
 
 "highlight Search ctermbg=235 ctermfg=white
 highlight Search ctermbg=17 ctermfg=9
+hi Visual cterm=reverse ctermbg=0
 " hi DiffText   cterm=none ctermfg=Black ctermbg=Red gui=none guifg=Black guibg=Red
 " hi DiffChange cterm=none ctermfg=Black ctermbg=LightMagenta gui=none guifg=Black guibg=LightMagenta
 hi DiffAdd          ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse        gui=reverse
